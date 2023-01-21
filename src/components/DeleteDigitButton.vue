@@ -1,5 +1,7 @@
 <template>
-  <button @click="deleteDigit"><ion-icon name="backspace"></ion-icon></button>
+  <div>
+    <img @click="deleteDigit" src="/img/delete.left.fill.svg" alt="" />
+  </div>
 </template>
 <script>
 export default {
@@ -11,4 +13,16 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 50%;
+  filter: brightness(0.95);
+  cursor: pointer;
+}
+</style>

@@ -1,57 +1,44 @@
 <template>
-  <div class="contact">
-    <div>
-      <span class="name">{{ name }}</span>
-      <span>{{ phoneNumber }}</span>
+  <span @click="setDisplayedContactId" class="contact">
+    <div v-if="name !== '' || surname !== ''">
+      <span class="name">{{ name + ' ' }}</span>
+      <span class="surname">{{ surname }}</span>
     </div>
-
-    <CallButton :name="name" />
-  </div>
+    <div v-else>
+      <div class="name">
+        <span v-for="(digit, index) in phoneNumber" v-bind:key="index">
+          {{ digit + (index % 2 === 1 ? ' ' : '') }}
+        </span>
+      </div>
+    </div>
+  </span>
 </template>
 <script>
-import CallButton from './CallButton.vue';
 export default {
   name: 'ContactCard',
-  components: {
-    CallButton,
+  components: {},
+  props: ['id', 'name', 'surname', 'phoneNumber'],
+  methods: {
+    setDisplayedContactId() {
+      this.$store.commit('setDisplayedContactId', this.id);
+    },
   },
-  props: ['name', 'phoneNumber'],
 };
 </script>
-<style>
+<style scoped>
 .contact {
+  margin: 0 1rem;
+  height: 48px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  padding: 0.5rem;
-}
-
-.contact div {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact .name {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.call-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  opacity: 0.7;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 1000px;
-  font-size: 2rem;
+  border-bottom: 1px solid #b2b2b2;
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
 }
 
-.call-button:hover {
-  opacity: 1;
+.contact .surname {
+  font-weight: 600;
 }
 </style>

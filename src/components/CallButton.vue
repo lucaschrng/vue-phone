@@ -1,12 +1,12 @@
 <template>
   <button @click="addEntry" class="call-button">
-    <ion-icon name="call"></ion-icon>
+    <slot></slot>
   </button>
 </template>
 <script>
 export default {
   name: 'CallButton',
-  props: ['name'],
+  props: ['id', 'name', 'surname', 'phoneNumber', 'callType'],
   computed: {
     entries() {
       return this.$store.state.entries;
@@ -16,15 +16,30 @@ export default {
     addEntry() {
       let date = new Date();
       this.$store.commit('addEntry', {
+        id: this.id,
         name: this.name,
+        surname:
+          this.name === '' ? (this.surname === '' ? '' : this.surname) : '',
+        phoneNumber: this.phoneNumber,
+        callType: this.callType,
         time: date.toLocaleTimeString('fr-FR', {
           hour: '2-digit',
           minute: '2-digit',
         }),
-        date: date.toLocaleDateString('fr-FR', { dateStyle: 'full' }),
+        date: date.toLocaleDateString('fr-FR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        }),
       });
     },
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+button {
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+</style>
