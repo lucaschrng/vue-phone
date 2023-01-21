@@ -80,6 +80,8 @@ export default {
 
 button {
   font-family: 'SF Pro Display', sans-serif;
+  color: black;
+  background-color: transparent;
 }
 
 nav {
