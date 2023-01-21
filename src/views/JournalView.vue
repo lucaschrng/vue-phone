@@ -27,6 +27,9 @@ export default {
       return this.$store.state.entries.slice().reverse();
     },
   },
+  created() {
+    document.title = 'iPhone - Récents';
+  },
 };
 </script>
 <style scoped>

@@ -98,6 +98,9 @@ export default {
       this.$store.commit('toggleForm');
     },
   },
+  created() {
+    document.title = 'iPhone - Contacts';
+  },
 };
 </script>
 <style scoped>

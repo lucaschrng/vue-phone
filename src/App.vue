@@ -32,6 +32,7 @@
           <img src="/img/keypad.svg" alt="" />
           Clavier
         </router-link>
+        <div class="home-bar"></div>
       </nav>
     </div>
   </div>
@@ -133,6 +134,15 @@ nav img.contacts-icon--active {
 nav .router-link-active img.contacts-icon--active {
   filter: none;
   display: block;
+}
+
+.home-bar {
+  position: absolute;
+  bottom: 6px;
+  height: 5px;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1000px;
 }
 
 .iphone-frame__container {
