@@ -60,7 +60,7 @@ export default createStore({
       {
         id: '10',
         name: 'Alexis',
-        surname: 'Bougis',
+        surname: 'Bougy',
         phoneNumber: '0682645722',
       },
     ],
