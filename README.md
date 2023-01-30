@@ -1,4 +1,7 @@
-# rendu
+# Vue iPhone
+
+## Visit the project
+If you want to explore this project, visit [this link](https://vue-phone.vercel.app/)
 
 ## Project setup
 ```
@@ -19,6 +22,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
